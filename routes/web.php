@@ -22,19 +22,12 @@ Route::get("/demo/{id}", function($id) {
     echo "id = ".$id;
 })->where(["id"=>"[0-9]+"]);
 
-Route::get("/testconfig", function(){
-    $p = DB::select("SELECT * FROM pompiers WHERE Matricule=?" , ["Ma0001"]);
-    ddd($p);
-});
-
-Route::get("/testeloquent/{matricule}", function($matricule){
-    $pompier = \App\Models\pompiers::find($matricule)->Caserne;
-    ddd($pompier);
-})->where(["matricule"=>"Ma[0-9]{4}"]);
-
-Route::get("/testeloquent/{numcaserne}", function($numcaserne){
-    $caserne = \App\Models\Casernes::find($numcaserne)->Pompier;
-    ddd($caserne);
-})->where(["numcaserne"=>"[0-9]"]);
-
 Route::get("/viewAccueil", [\App\Http\Controllers\ControllerAccueil::class, "hello"]);
+
+Route::get("/viewSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "hello"]);
+
+Route::get("/viewResponsables", [\App\Http\Controllers\ControllerResponsables::class, "hello"]);
+
+Route::get("/viewDelegues", [\App\Http\Controllers\ControllerDelegues::class, "hello"]);
+
+Route::get("/viewVisiteurs", [\App\Http\Controllers\ControllerVisiteurs::class, "hello"]);
