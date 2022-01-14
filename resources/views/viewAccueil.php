@@ -13,28 +13,19 @@
 
 </head>
 <tbody>
-    <div>
-        <p align="center">
-            <button type=" button" class="btn rose" class="btn btn-outline-danger">Secteurs</button>
-        </p>
-    </div>
 
-    <div class="centre">
-        <p align="center">
-        <button class="btn rose" type="button" >Responsables</button>
-        </p>
-    </div>
-
-    <div class="centre">
-        <p align="center">
-        <button type="button" class="btn rose">Délégués</button>
-        </p>
+    <div class="buttons">
+    
+        <button type=" button" class="btn success" class="btn btn-outline-danger">Secteurs</button>
+       
+        <button class="btn success" type="button" >Responsables</button>
+        
+        <button type="button" class="btn success">Délégués</button>
+       
+        <button type="button" class="btn success">Visiteurs</button>
+        
     </div>
     
-    <div class="centre">
-        <p align="center">
-        <button type="button" class="btn rose">Visiteurs</button>
-        </p>
-    </div>
+    
     
 </tbody>

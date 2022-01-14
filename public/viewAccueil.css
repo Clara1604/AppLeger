@@ -25,10 +25,34 @@
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-.rose {
-    color : white;
-    border: 2px palevioletred;
-    margin: 0 auto; 
-    display: block;
-    background-color : pink;
-}
+.btn {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 8px 22px;
+    font-size: 13px;
+    cursor: pointer;
+    height: 40px;
+  }
+
+  /* Pink */
+.success {
+    border-color:pink;
+    color: pink;
+  }
+  
+  .success:hover {
+    background-color: pink;
+    color: white;
+  }
+
+  .buttons {
+      position: relative;
+      top: 40vh;
+      transform: translateY(-50%);
+      gap: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      vertical-align: middle;
+  }
