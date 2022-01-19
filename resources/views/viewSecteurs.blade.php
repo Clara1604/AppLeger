@@ -57,19 +57,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-    </tr>
+          @foreach($viewSecteurs as $secteur)
+            <tr>
+            <td class="pt-3-half" contenteditable="true"> {{$secteur->getKey()}} </td>
+            <td class="pt-3-half" contenteditable="true">{{$secteur->SectNom}}</td>
+          </tr>
+          @endforeach
+    
   </tbody>
 </table>
-
+            
 </tbody>

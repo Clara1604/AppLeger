@@ -61,30 +61,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Tom</td>
-      <td>06677667</td>
-      <td>T.mark@gmail.com</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Tom</td>
-      <td>06677667</td>
-      <td>T.mark@gmail.com</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>Tom</td>
-      <td>06677667</td>
-      <td>T.mark@gmail.com</td>
-      <td>9</td>
-    </tr>
+            @foreach($viewVisiteurs as $visiteur)
+            <tr>
+            <td class="pt-3-half" contenteditable="true"> {{$visiteur->getKey()}} </td>
+            <td class="pt-3-half" contenteditable="true">{{$visiteur->VisNom}}</td>
+            <td class="pt-3-half" contenteditable="true">{{$visiteur->VisPrenom}}</td>
+            <td class="pt-3-half" contenteditable="true">{{$visiteur->VisTel}}</td>
+            <td class="pt-3-half" contenteditable="true">{{$visiteur->VisMail}}</td>
+            <td class="pt-3-half" contenteditable="true">{{$visiteur->IdDel}}</td>
+          </tr>
+          @endforeach
   </tbody>
 </table>
 

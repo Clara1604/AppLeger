@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\Log;
 
 class ControllerDelegues extends Controller
 {
-    public function hello() {
+    public function hello(Request $request) {
 
-        return view("viewDelegues");
+        $delegues = \App\Models\Delegues::all();
+
+
+
+        return view("viewDelegues", ["viewDelegues"=>$delegues]);
 
     }
 }

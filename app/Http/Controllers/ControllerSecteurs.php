@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\Log;
 
 class ControllerSecteurs extends Controller {
 
-    public function hello() {
+    public function hello(Request $request) {
 
-        return view("viewSecteurs");
+        $secteurs = \App\Models\Secteurs::all();
+
+
+
+        return view("viewSecteurs", ["viewSecteurs"=>$secteurs]);
 
     }
 }

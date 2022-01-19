@@ -7,9 +7,21 @@ use Illuminate\Support\Facades\Log;
 
 class ControllerVisiteurs extends Controller
 {
-    public function hello() {
+    public function hello(Request $request) {
 
-        return view("viewVisiteurs");
+        $visiteurs = \App\Models\Visiteurs::all();
+
+        return view("viewVisiteurs", ["viewVisiteurs"=>$visiteurs]);
 
     }
+
+    public function add(Request $request) {
+
+        $visiteurs = \App\Models\Visiteurs::all();
+
+        return view("createVisiteurs", ["createVisiteurs"=>$visiteurs]);
+
+    }
+
+
 }

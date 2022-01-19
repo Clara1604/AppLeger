@@ -61,30 +61,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Tom</td>
-      <td>06677667</td>
-      <td>T.mark@gmail.com</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Tom</td>
-      <td>06677667</td>
-      <td>T.mark@gmail.com</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>Tom</td>
-      <td>06677667</td>
-      <td>T.mark@gmail.com</td>
-      <td>9</td>
-    </tr>
+  @foreach($viewResponsables as $responsable)
+            <tr>
+            <td class="pt-3-half" contenteditable="true"> {{$responsable->getKey()}} </td>
+            <td class="pt-3-half" contenteditable="true">{{$responsable->RespNom}}</td>
+            <td class="pt-3-half" contenteditable="true">{{$responsable->RespPrenom}}</td>
+            <td class="pt-3-half" contenteditable="true">{{$responsable->RespTel}}</td>
+            <td class="pt-3-half" contenteditable="true">{{$responsable->RespMail}}</td>
+            <td class="pt-3-half" contenteditable="true">{{$responsable->SectCode}}</td>
+          </tr>
+          @endforeach
   </tbody>
 </table>
 

@@ -37,41 +37,44 @@
         <a class="nav-link" href="{{route('goVisiteurs')}}">Visiteurs</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-      <button class="btn success" type="submit">chercher</button>
-    </form>
   </div>
 </nav>
              <!---------------- Fin Barre de recherche ------------------>
 
-<h1 class="titre">Les Délégues</h1>
-            
-             <!------------------- tableau ---------------------->
+<h1 class="titre">Ajouter Visiteur</h1>
 
-<table class="table table-striped" align="center">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Nom</th>
-      <th scope="col">Prenom</th>
-      <th scope="col">Tel</th>
-      <th scope="col">Mail</th>
-      <th scope="col">Id Responsables</th>
-    </tr>
-  </thead>
-  <tbody>
-            @foreach($viewDelegues as $delegue)
-            <tr>
-            <td class="pt-3-half" contenteditable="true"> {{$delegue->getKey()}} </td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->DelNom}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->DelPrenom}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->DelTel}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->DelMail}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->IdResp}}</td>
-          </tr>
-          @endforeach
-  </tbody>
-</table>
+            <!---------------- Formulaire ------------------>
 
-</tbody>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Identifiant</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a number">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Nom</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nom">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Prénom</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Prénom">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Numéro de téléphone</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Numéro de téléphone">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Mail</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mail">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Identifiant Délégués</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn success">Submit</button>
+</form>

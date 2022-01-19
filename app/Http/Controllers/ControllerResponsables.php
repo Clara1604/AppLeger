@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\Log;
 
 class ControllerResponsables extends Controller
 {
-    public function hello() {
+    public function hello(Request $request) {
 
-        return view("viewResponsables");
+        $responsables = \App\Models\Responsables::all();
+
+
+
+        return view("viewResponsables", ["viewResponsables"=>$responsables]);
 
     }
 }

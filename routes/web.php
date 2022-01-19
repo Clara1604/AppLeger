@@ -32,6 +32,8 @@ Route::get("/delegues", [\App\Http\Controllers\ControllerDelegues::class, "hello
 
 Route::get("/visiteurs", [\App\Http\Controllers\ControllerVisiteurs::class, "hello"])->name("goVisiteurs");
 
+Route::get("/AddVisiteur", [\App\Http\Controllers\ControllerVisiteurs::class, "add"])->name("addVisiteurs");
+
 
 Route::get('/test1', function () {
     return view('visiteur');
