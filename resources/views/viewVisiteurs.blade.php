@@ -22,19 +22,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('goHome')}}">Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Secteurs</a>
+        <a class="nav-link" href="{{route('goSecteurs')}}">Secteurs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Responsables</a>
+        <a class="nav-link" href="{{route('goResponsables')}}">Responsables</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Délégués</a>
+        <a class="nav-link" href="{{route('goDelegues')}}">Délégués</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Visiteurs</a>
+        <a class="nav-link" href="{{route('goVisiteurs')}}">Visiteurs</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -45,29 +45,45 @@
 </nav>
              <!---------------- Fin Barre de recherche ------------------>
 
-<h1 class="titre">Les Secteurs</h1>
+<h1 class="titre">Les Visiteurs</h1>
             
              <!------------------- tableau ---------------------->
 
 <table class="table table-striped" align="center">
   <thead>
     <tr>
-      <th scope="col">Code</th>
+      <th scope="col">Id</th>
       <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Tel</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Id Délégues</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
       <td>Mark</td>
+      <td>Tom</td>
+      <td>06677667</td>
+      <td>T.mark@gmail.com</td>
+      <td>9</td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Jacob</td>
+      <td>Tom</td>
+      <td>06677667</td>
+      <td>T.mark@gmail.com</td>
+      <td>9</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Larry</td>
+      <td>Tom</td>
+      <td>06677667</td>
+      <td>T.mark@gmail.com</td>
+      <td>9</td>
     </tr>
   </tbody>
 </table>

@@ -22,12 +22,17 @@ Route::get("/demo/{id}", function($id) {
     echo "id = ".$id;
 })->where(["id"=>"[0-9]+"]);
 
-Route::get("/viewAccueil", [\App\Http\Controllers\ControllerAccueil::class, "hello"]);
+Route::get("/accueil", [\App\Http\Controllers\ControllerAccueil::class, "hello"])->name("goHome");
 
-Route::get("/viewSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "hello"]);
+Route::get("/secteurs", [\App\Http\Controllers\ControllerSecteurs::class, "hello"])->name("goSecteurs");
 
-Route::get("/viewResponsables", [\App\Http\Controllers\ControllerResponsables::class, "hello"]);
+Route::get("/responsables", [\App\Http\Controllers\ControllerResponsables::class, "hello"])->name("goResponsables");
 
-Route::get("/viewDelegues", [\App\Http\Controllers\ControllerDelegues::class, "hello"]);
+Route::get("/delegues", [\App\Http\Controllers\ControllerDelegues::class, "hello"])->name("goDelegues");
 
-Route::get("/viewVisiteurs", [\App\Http\Controllers\ControllerVisiteurs::class, "hello"]);
+Route::get("/visiteurs", [\App\Http\Controllers\ControllerVisiteurs::class, "hello"])->name("goVisiteurs");
+
+
+Route::get('/test1', function () {
+    return view('visiteur');
+});

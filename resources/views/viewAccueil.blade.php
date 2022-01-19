@@ -14,16 +14,20 @@
 </head>
 <tbody>
 
+    <h1>GSB</h1>
+
     <div class="buttons">
     
-        <button type=" button" class="btn success" class="btn btn-outline-danger">Secteurs</button>
+        <a type=" button" class="btn success" href="{{ route('goSecteurs') }}">Secteurs</a>
        
-        <button class="btn success" type="button" >Responsables</button>
+        <a class="btn success" type="button" href="{{route('goResponsables')}}">Responsables</a>
         
-        <button type="button" class="btn success">Délégués</button>
+        <a type="button" class="btn success" href="{{route('goDelegues')}}">Délégués</a>
        
-        <button type="button" class="btn success">Visiteurs</button>
+        <a type="button" class="btn success" href="{{route('goVisiteurs')}}">Visiteurs</a>
         
+
+
     </div>
     
     
