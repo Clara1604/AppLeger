@@ -46,6 +46,8 @@
              <!---------------- Fin Barre de recherche ------------------>
 
 <h1 class="titre">Les Visiteurs</h1>
+<a type=" button" class="btn success" href="{{ route('addVisiteurs') }}">Ajouter un Visiteur</a>
+<br></br>
             
              <!------------------- tableau ---------------------->
 

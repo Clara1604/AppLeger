@@ -34,7 +34,11 @@ Route::get("/visiteurs", [\App\Http\Controllers\ControllerVisiteurs::class, "hel
 
 Route::get("/AddVisiteur", [\App\Http\Controllers\ControllerVisiteurs::class, "add"])->name("addVisiteurs");
 
-Route::get("/AddDelegues", [\App\Http\Controllers\ControllerVisiteurs::class, "add"])->name("addVisiteurs");
+Route::get("/AddDelegues", [\App\Http\Controllers\ControllerDelegues::class, "add"])->name("addDelegues");
+
+Route::get("/AddResponsables", [\App\Http\Controllers\ControllerResponsables::class, "add"])->name("addResponsables");
+
+Route::get("/AddSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "add"])->name("addSecteurs");
 
 Route::get('/test1', function () {
     return view('visiteur');

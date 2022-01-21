@@ -46,6 +46,8 @@
              <!---------------- Fin Barre de recherche ------------------>
 
 <h1 class="titre">Les Responsables</h1>
+<a type=" button" class="btn success" href="{{ route('addResponsables') }}">Ajouter un Responsables</a>
+<br></br>
             
              <!------------------- tableau ---------------------->
 

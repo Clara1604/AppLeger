@@ -46,7 +46,9 @@
              <!---------------- Fin Barre de recherche ------------------>
 
 <h1 class="titre">Les Secteurs</h1>
-            
+<a type=" button" class="btn success" href="{{ route('addSecteurs') }}">Ajouter un Secteurs</a>
+<br></br>
+
              <!------------------- tableau ---------------------->
 
 <table class="table table-striped" align="center">
@@ -66,5 +68,5 @@
     
   </tbody>
 </table>
-            
+           
 </tbody>

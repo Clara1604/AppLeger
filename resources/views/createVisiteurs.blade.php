@@ -48,58 +48,27 @@
 <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Identifiant</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a number">
+    <input type="number" class="form-control" id="IdVis" placeholder="Enter a number">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Nom</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nom">
+    <input type="name" class="form-control" id="VisNom" placeholder="Nom">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Prénom</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Prénom">
+    <input type="name" class="form-control" id="VisPrenom" placeholder="Prénom">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Numéro de téléphone</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Numéro de téléphone">
+    <input type="tel" class="form-control" id="VisTel" placeholder="Numéro de téléphone">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Mail</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mail">
+    <input type="email" class="form-control" id="VisMail" aria-describedby="emailHelp"" placeholder="Mail">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Identifiant Délégués</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>
-      <option>11</option>
-      <option>12</option>
-      <option>13</option>
-      <option>14</option>
-      <option>15</option>
-      <option>16</option>
-      <option>17</option>
-      <option>18</option>
-      <option>19</option>
-      <option>20</option>
-      <option>21</option>
-      <option>22</option>
-      <option>23</option>
-      <option>24</option>
-      <option>25</option>
-      <option>26</option>
-      <option>27</option>
-      <option>28</option>
-      <option>29</option>
-      <option>30</option>
-    </select>
+    <label for="exampleInputEmail1">Identifiant</label>
+    <input type="number" class="form-control" id="IdDel" min="1" max="30" placeholder="Enter a number">
   </div>
-  <button type="submit" class="btn btn success">Submit</button>
+  <button type="submit" class="btn btn success">Valider</button>
 </form>

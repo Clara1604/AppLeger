@@ -46,6 +46,8 @@
              <!---------------- Fin Barre de recherche ------------------>
 
 <h1 class="titre">Les Délégues</h1>
+<a type=" button" class="btn success" href="{{ route('addDelegues') }}">Ajouter un Délégués</a>
+<br></br>
             
              <!------------------- tableau ---------------------->
 
