@@ -16,4 +16,12 @@ class ControllerResponsables extends Controller
         return view("viewResponsables", ["viewResponsables"=>$responsables]);
 
     }
+
+    public function add(Request $request) {
+
+        $responsables = \App\Models\Responsables::all();
+
+        return view("createResponsables", ["createResponsables"=>$responsables]);
+
+    }
 }

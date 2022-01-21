@@ -12,9 +12,15 @@ class ControllerSecteurs extends Controller {
 
         $secteurs = \App\Models\Secteurs::all();
 
-
-
         return view("viewSecteurs", ["viewSecteurs"=>$secteurs]);
+
+    }
+
+    public function add(Request $request) {
+
+        $secteurs = \App\Models\Secteurs::all();
+
+        return view("createSecteurs", ["createSecteurs"=>$secteurs]);
 
     }
 }
