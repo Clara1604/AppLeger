@@ -32,7 +32,7 @@ Route::get("/delegues", [\App\Http\Controllers\ControllerDelegues::class, "hello
 
 Route::get("/visiteurs", [\App\Http\Controllers\ControllerVisiteurs::class, "hello"])->name("goVisiteurs");
 
-Route::get("/AddVisiteur", [\App\Http\Controllers\ControllerVisiteurs::class, "add"])->name("addVisiteurs");
+Route::get("/AddVisiteur",[\App\Http\Controllers\ControllerVisiteurs::class, "add"])->name("addVisiteurs");
 
 Route::get("/AddDelegues", [\App\Http\Controllers\ControllerDelegues::class, "add"])->name("addDelegues");
 
@@ -40,6 +40,11 @@ Route::get("/AddResponsables", [\App\Http\Controllers\ControllerResponsables::cl
 
 Route::get("/AddSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "add"])->name("addSecteurs");
 
-Route::get('/test1', function () {
-    return view('visiteur');
-});
+Route::post('/AjoutSecteurs', function() {
+    $secteurs = new App\Models\Secteurs();
+    $secteurs->SectCode = request('SectCode');
+    $secteurs->SectNom = request('SectNom');
+
+    $secteurs->save();
+})->name("ajoutSecteurs");
+

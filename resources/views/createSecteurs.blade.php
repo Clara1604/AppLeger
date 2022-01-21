@@ -54,5 +54,5 @@
     <label for="exampleInputPassword1">Nom</label>
     <input type="name" class="form-control" id="SectNom" placeholder="Nom">
   </div>
-  <button type="submit" class="btn btn success">Valider</button>
+  <a type=" button" class="btn success" href="{{ route('ajoutSecteurs') }}">Valider</button>
 </form>
