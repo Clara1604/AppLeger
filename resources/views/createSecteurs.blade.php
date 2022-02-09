@@ -45,14 +45,15 @@
 
             <!---------------- Formulaire ------------------>
 
-<form>
+<form method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1">Identifiant</label>
-    <input type="number" class="form-control" id="SectCode" min="10" placeholder="Enter a number">
+    <input type="number" class="form-control" name="SectCode" min="10" placeholder="Enter a number">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Nom</label>
-    <input type="name" class="form-control" id="SectNom" placeholder="Nom">
+    <input type="name" class="form-control" name="SectNom" placeholder="Nom">
   </div>
-  <a type=" button" class="btn success" href="{{ route('ajoutSecteurs') }}">Valider</button>
+  <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+  <input type="submit" class="btn success" value="Valider"></input>
 </form>

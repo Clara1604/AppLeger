@@ -45,30 +45,31 @@
 
             <!---------------- Formulaire ------------------>
 
-<form>
+<form method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1">Identifiant</label>
-    <input type="number" class="form-control" id="IdResp" placeholder="Enter a number">
+    <input type="number" class="form-control" name="IdResp" placeholder="Enter a number">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Nom</label>
-    <input type="name" class="form-control" id="RespNom" placeholder="Nom">
+    <input type="name" class="form-control" name="RespNom" placeholder="Nom">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Prénom</label>
-    <input type="name" class="form-control" id="RespPrenom" placeholder="Prénom">
+    <input type="name" class="form-control" name="RespPrenom" placeholder="Prénom">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Numéro de téléphone</label>
-    <input type="tel" class="form-control" id="RespTel" placeholder="Numéro de téléphone">
+    <input type="tel" class="form-control" name="RespTel" placeholder="Numéro de téléphone">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Mail</label>
-    <input type="email" class="form-control" id="RespMail" aria-describedby="emailHelp" placeholder="Mail">
+    <input type="email" class="form-control" name="RespMail" aria-describedby="emailHelp" placeholder="Mail">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Identifiant Secteurs</label>
-    <input type="number" class="form-control" id="SectCode" min="1" max="10" placeholder="Identifiant">
+    <input type="number" class="form-control" name="SectCode" min="1" max="10" placeholder="Identifiant">
   </div>
+  <input type="hidden" name="_token" value="{{ csrf_token() }}" />
   <button type="submit" class="btn btn success">Valider</button>
 </form>

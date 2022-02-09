@@ -40,11 +40,28 @@ Route::get("/AddResponsables", [\App\Http\Controllers\ControllerResponsables::cl
 
 Route::get("/AddSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "add"])->name("addSecteurs");
 
-Route::post('/AjoutSecteurs', function() {
+Route::post("/AddSecteurs", function() {
     $secteurs = new App\Models\Secteurs();
     $secteurs->SectCode = request('SectCode');
     $secteurs->SectNom = request('SectNom');
 
     $secteurs->save();
-})->name("ajoutSecteurs");
+
+    return redirect('/secteurs');
+})->name("AddSecteurs");
+
+
+Route::post("/AddResponsables", function() {
+    $responsables = new App\Models\Responsables();
+    $responsables->IdResp = request('IdResp');
+    $responsables->RespNom = request('RespNom');
+    $responsables->RespPrenom = request('RespPrenom');
+    $responsables->RespTel = request('RespTel');
+    $responsables->RespMail = request('RespMail');
+    $responsables->SectCode = request('SectCode');
+
+    $responsables->save();
+
+    return redirect('/responsables');
+})->name("AddResponsables");
 

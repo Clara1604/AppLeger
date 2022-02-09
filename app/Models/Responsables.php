@@ -12,10 +12,13 @@ class Responsables extends Model
     protected $primaryKey = 'IdResp';
 
     // indicate if the ID is auto-imcremating
-    public $incrementang = false;
+    public $incrementing = false;
 
     protected $connection = 'mysql';
     
     protected $keytype = 'string';
+
+    const UPDATED_AT = null;
+    const CREATED_AT = null;
 
 }
