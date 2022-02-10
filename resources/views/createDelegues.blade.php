@@ -45,30 +45,31 @@
 
             <!---------------- Formulaire ------------------>
 
-<form>
+<form method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1">Identifiant</label>
-    <input type="number" class="form-control" id="IdDel" placeholder="Enter a number">
+    <input type="number" class="form-control" name="IdDel" placeholder="Enter a number">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Nom</label>
-    <input type="name" class="form-control" id="DelNom" placeholder="Nom">
+    <input type="name" class="form-control" name="DelNom" placeholder="Nom">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Prénom</label>
-    <input type="name" class="form-control" id="DelPrenom" placeholder="Prénom">
+    <input type="name" class="form-control" name="DelPrenom" placeholder="Prénom">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Numéro de téléphone</label>
-    <input type="tel" class="form-control" id="DelTel" placeholder="Numéro de téléphone">
+    <input type="tel" class="form-control" name="DelTel" placeholder="Numéro de téléphone">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Mail</label>
-    <input type="email" class="form-control" id="DelMail" aria-describedby="emailHelp" placeholder="Mail">
+    <input type="email" class="form-control" name="DelMail" aria-describedby="emailHelp" placeholder="Mail">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Identifiant</label>
-    <input type="number" class="form-control" id="IdResp" min="1" max="15" placeholder="Enter a number">
+    <input type="number" class="form-control" name="IdResp" min="1" max="15" placeholder="Enter a number">
   </div>
+  <input type="hidden" name="_token" value="{{ csrf_token() }}" />
   <button type="submit" class="btn btn success">Valider</button>
 </form>

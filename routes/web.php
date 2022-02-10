@@ -32,7 +32,7 @@ Route::get("/delegues", [\App\Http\Controllers\ControllerDelegues::class, "hello
 
 Route::get("/visiteurs", [\App\Http\Controllers\ControllerVisiteurs::class, "hello"])->name("goVisiteurs");
 
-Route::get("/AddVisiteur",[\App\Http\Controllers\ControllerVisiteurs::class, "add"])->name("addVisiteurs");
+Route::get("/AddVisiteurs",[\App\Http\Controllers\ControllerVisiteurs::class, "add"])->name("addVisiteurs");
 
 Route::get("/AddDelegues", [\App\Http\Controllers\ControllerDelegues::class, "add"])->name("addDelegues");
 
@@ -65,3 +65,31 @@ Route::post("/AddResponsables", function() {
     return redirect('/responsables');
 })->name("AddResponsables");
 
+Route::post("/AddDelegues", function() {
+    $delegues = new App\Models\Delegues();
+    $delegues->IdDel = request('IdDel');
+    $delegues->DelNom = request('DelNom');
+    $delegues->DelPrenom = request('Delprenom');
+    $delegues->DelTel = request('DelTel');
+    $delegues->DelMail = request('DelMail');
+    $delegues->IdResp = request('IdResp');
+
+    $delegues->save();
+
+    return redirect('/delegues');
+})->name("AddDelegues");
+
+
+Route::post("/AddVisiteurs", function() {
+    $visiteurs = new App\Models\Visiteurs();
+    $visiteurs->IdVis = request('IdVis');
+    $visiteurs->VisNom = request('VisNom');
+    $visiteurs->VisPrenom = request('VisPrenom');
+    $visiteurs->VisTel = request('VisTel');
+    $visiteurs->VisMail = request('VisMail');
+    $visiteurs->IdDel = request('IdDel');
+
+    $visiteurs->save();
+
+    return redirect('/visiteurs');
+})->name("AddVisiteurs");
