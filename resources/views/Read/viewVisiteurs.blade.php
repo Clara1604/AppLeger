@@ -45,8 +45,8 @@
 </nav>
              <!---------------- Fin Barre de recherche ------------------>
 
-<h1 class="titre">Les Délégues</h1>
-<a type=" button" class="btn success" href="{{ route('addDelegues') }}">Ajouter un Délégués</a>
+<h1 class="titre">Les Visiteurs</h1>
+<a type=" button" class="btn success" href="{{ route('addVisiteurs') }}">Ajouter un Visiteur</a>
 <br></br>
             
              <!------------------- tableau ---------------------->
@@ -59,18 +59,26 @@
       <th scope="col">Prenom</th>
       <th scope="col">Tel</th>
       <th scope="col">Mail</th>
-      <th scope="col">Id Responsables</th>
+      <th scope="col">Id Délégues</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
     </tr>
   </thead>
   <tbody>
-            @foreach($viewDelegues as $delegue)
+            @foreach($viewVisiteurs as $visiteur)
             <tr>
-            <td class="pt-3-half" contenteditable="true"> {{$delegue->getKey()}} </td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->DelNom}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->DelPrenom}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->DelTel}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->DelMail}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$delegue->IdResp}}</td>
+            <td class="pt-3-half" > {{$visiteur->getKey()}} </td>
+            <td class="pt-3-half" >{{$visiteur->VisNom}}</td>
+            <td class="pt-3-half" >{{$visiteur->VisPrenom}}</td>
+            <td class="pt-3-half" >{{$visiteur->VisTel}}</td>
+            <td class="pt-3-half" >{{$visiteur->VisMail}}</td>
+            <td class="pt-3-half" >{{$visiteur->IdDel}}</td>
+            <td class="pt-3-half" class="MS" > 
+              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">M</a>
+            </td>
+            <td class="pt-3-half" class="MS" >
+              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">S</a>
+            </td>
           </tr>
           @endforeach
   </tbody>

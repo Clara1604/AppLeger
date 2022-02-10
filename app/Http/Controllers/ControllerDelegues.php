@@ -11,7 +11,7 @@ class ControllerDelegues extends Controller
 
         $delegues = \App\Models\Delegues::all();
 
-        return view("viewDelegues", ["viewDelegues"=>$delegues]);
+        return view("Read/viewDelegues", ["viewDelegues"=>$delegues]);
 
     }
 
@@ -19,7 +19,7 @@ class ControllerDelegues extends Controller
 
         $delegues = \App\Models\Delegues::all();
 
-        return view("createDelegues", ["createDelegues"=>$delegues]);
+        return view("Create/createDelegues", ["createDelegues"=>$delegues]);
 
     }
 }

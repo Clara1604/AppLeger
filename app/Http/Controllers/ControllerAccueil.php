@@ -10,7 +10,7 @@ class ControllerAccueil extends Controller
 {
     public function hello() {
 
-        return view("viewAccueil");
+        return view("Read/viewAccueil");
 
     }
 }

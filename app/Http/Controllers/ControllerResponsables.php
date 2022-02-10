@@ -11,9 +11,7 @@ class ControllerResponsables extends Controller
 
         $responsables = \App\Models\Responsables::all();
 
-
-
-        return view("viewResponsables", ["viewResponsables"=>$responsables]);
+        return view("Read/viewResponsables", ["viewResponsables"=>$responsables]);
 
     }
 
@@ -21,7 +19,7 @@ class ControllerResponsables extends Controller
 
         $responsables = \App\Models\Responsables::all();
 
-        return view("createResponsables", ["createResponsables"=>$responsables]);
+        return view("Create/createResponsables", ["createResponsables"=>$responsables]);
 
     }
 }

@@ -60,17 +60,25 @@
       <th scope="col">Tel</th>
       <th scope="col">Mail</th>
       <th scope="col">code Secteur</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
     </tr>
   </thead>
   <tbody>
   @foreach($viewResponsables as $responsable)
             <tr>
-            <td class="pt-3-half" contenteditable="true"> {{$responsable->getKey()}} </td>
-            <td class="pt-3-half" contenteditable="true">{{$responsable->RespNom}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$responsable->RespPrenom}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$responsable->RespTel}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$responsable->RespMail}}</td>
-            <td class="pt-3-half" contenteditable="true">{{$responsable->SectCode}}</td>
+            <td class="pt-3-half" > {{$responsable->getKey()}} </td>
+            <td class="pt-3-half" >{{$responsable->RespNom}}</td>
+            <td class="pt-3-half" >{{$responsable->RespPrenom}}</td>
+            <td class="pt-3-half" >{{$responsable->RespTel}}</td>
+            <td class="pt-3-half" >{{$responsable->RespMail}}</td>
+            <td class="pt-3-half" >{{$responsable->SectCode}}</td>
+            <td class="pt-3-half" class="MS" > 
+              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">M</a>
+            </td>
+            <td class="pt-3-half" class="MS" >
+              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">S</a>
+            </td>
           </tr>
           @endforeach
   </tbody>

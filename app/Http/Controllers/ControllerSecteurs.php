@@ -12,7 +12,7 @@ class ControllerSecteurs extends Controller {
 
         $secteurs = \App\Models\Secteurs::all();
 
-        return view("viewSecteurs", ["viewSecteurs"=>$secteurs]);
+        return view("Read/viewSecteurs", ["viewSecteurs"=>$secteurs]);
 
     }
 
@@ -20,7 +20,7 @@ class ControllerSecteurs extends Controller {
 
         $secteurs = \App\Models\Secteurs::all();
 
-        return view("createSecteurs", ["createSecteurs"=>$secteurs]);
+        return view("Create/createSecteurs", ["createSecteurs"=>$secteurs]);
 
     }
 }

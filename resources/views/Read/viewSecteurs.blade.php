@@ -56,15 +56,24 @@
     <tr>
       <th scope="col">Code</th>
       <th scope="col">Nom</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
     </tr>
   </thead>
   <tbody>
           @foreach($viewSecteurs as $secteur)
             <tr>
-            <td class="pt-3-half" contenteditable="true"> {{$secteur->getKey()}} </td>
-            <td class="pt-3-half" contenteditable="true">{{$secteur->SectNom}}</td>
+            <td class="pt-3-half" > {{$secteur->getKey()}} </td>
+            <td class="pt-3-half" >{{$secteur->SectNom}}</td>
+            <td class="pt-3-half" class="MS" > 
+              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">M</a>
+            </td>
+            <td class="pt-3-half" class="MS" >
+              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">S</a>
+            </td>
           </tr>
           @endforeach
+          
     
   </tbody>
 </table>

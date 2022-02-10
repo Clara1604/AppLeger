@@ -11,7 +11,7 @@ class ControllerVisiteurs extends Controller
 
         $visiteurs = \App\Models\Visiteurs::all();
 
-        return view("viewVisiteurs", ["viewVisiteurs"=>$visiteurs]);
+        return view("Read/viewVisiteurs", ["viewVisiteurs"=>$visiteurs]);
 
     }
 
@@ -19,7 +19,7 @@ class ControllerVisiteurs extends Controller
 
         $visiteurs = \App\Models\Visiteurs::all();
 
-        return view("createVisiteurs", ["createVisiteurs"=>$visiteurs]);
+        return view("Create/createVisiteurs", ["createVisiteurs"=>$visiteurs]);
 
     }
 
