@@ -66,9 +66,11 @@
             <td class="pt-3-half" > {{$secteur->getKey()}} </td>
             <td class="pt-3-half" >{{$secteur->SectNom}}</td>
             <td class="pt-3-half" class="MS" > 
-              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">M</a>
+            <!-- bouton modifer -->
+              <a type=" button" class="btn success" href="{{ route('updateSecteurs') }}">M</a>
             </td>
             <td class="pt-3-half" class="MS" >
+            <!-- bouton modifer -->
               <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">S</a>
             </td>
           </tr>

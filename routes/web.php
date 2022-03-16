@@ -22,6 +22,8 @@ Route::get("/demo/{id}", function($id) {
     echo "id = ".$id;
 })->where(["id"=>"[0-9]+"]);
 
+#Routes des READ
+
 Route::get("/accueil", [\App\Http\Controllers\ControllerAccueil::class, "hello"])->name("goHome");
 
 Route::get("/secteurs", [\App\Http\Controllers\ControllerSecteurs::class, "hello"])->name("goSecteurs");
@@ -39,6 +41,8 @@ Route::get("/AddDelegues", [\App\Http\Controllers\ControllerDelegues::class, "ad
 Route::get("/AddResponsables", [\App\Http\Controllers\ControllerResponsables::class, "add"])->name("addResponsables");
 
 Route::get("/AddSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "add"])->name("addSecteurs");
+
+#Routes des CREATE
 
 Route::post("/AddSecteurs", function() {
     $secteurs = new App\Models\Secteurs();
@@ -93,3 +97,7 @@ Route::post("/AddVisiteurs", function() {
 
     return redirect('/visiteurs');
 })->name("AddVisiteurs");
+
+#Routes pour voir formulaire de modif SECTEURS
+
+Route::get("/UpdSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "upd"])->name("updateSecteurs");

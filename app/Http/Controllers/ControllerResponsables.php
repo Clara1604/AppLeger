@@ -22,4 +22,12 @@ class ControllerResponsables extends Controller
         return view("Create/createResponsables", ["createResponsables"=>$responsables]);
 
     }
+
+    public function upd(Request $request) {
+
+        $responsables = \App\Models\Responsables::all();
+
+        return view("Update/updateResponsables", ["updateResponsables"=>$responsables]);
+
+    }
 }

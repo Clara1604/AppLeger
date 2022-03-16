@@ -22,4 +22,12 @@ class ControllerDelegues extends Controller
         return view("Create/createDelegues", ["createDelegues"=>$delegues]);
 
     }
+
+    public function upd(Request $request) {
+
+        $delegues = \App\Models\Delegues::all();
+
+        return view("Update/updateDelegues", ["updateDelegues"=>$delegues]);
+
+    }
 }

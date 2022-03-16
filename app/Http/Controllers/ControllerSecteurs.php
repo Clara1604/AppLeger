@@ -23,4 +23,12 @@ class ControllerSecteurs extends Controller {
         return view("Create/createSecteurs", ["createSecteurs"=>$secteurs]);
 
     }
+
+    public function upd(Request $request) {
+
+        $secteurs = \App\Models\Secteurs::all();
+
+        return view("Update/updateSecteurs", ["updateSecteurs"=>$secteurs]);
+
+    }
 }

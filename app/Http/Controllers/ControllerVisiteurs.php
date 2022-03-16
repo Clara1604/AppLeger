@@ -23,5 +23,11 @@ class ControllerVisiteurs extends Controller
 
     }
 
+    public function upd(Request $request) {
 
+        $visiteurs = \App\Models\Visiteurs::all();
+
+        return view("Update/updateVisiteurs", ["updateVisiteurs"=>$visiteurs]);
+
+    }
 }
