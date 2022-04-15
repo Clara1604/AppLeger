@@ -30,4 +30,12 @@ class ControllerVisiteurs extends Controller
         return view("Update/updateVisiteurs", ["updateVisiteurs"=>$visiteurs]);
 
     }
+
+    public function del(Request $request) {
+
+        $visiteurs = \App\Models\Visiteurs::all();
+
+        return view("Delete/deleteVisiteurs", ["deleteVisiteurss"=>$visiteurs]);
+
+    }
 }

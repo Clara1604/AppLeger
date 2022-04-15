@@ -49,6 +49,8 @@
 <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">Ajouter un Secteurs</a>
 <br></br>
 
+{{$viewSecteurs->links()}}
+
              <!------------------- tableau ---------------------->
 
 <table class="table table-striped" align="center">
@@ -63,16 +65,23 @@
   <tbody>
           @foreach($viewSecteurs as $secteur)
             <tr>
-            <td class="pt-3-half" > {{$secteur->getKey()}} </td>
+            <td class="pt-3-half" > {{$secteur->SectCode}} </td>
             <td class="pt-3-half" >{{$secteur->SectNom}}</td>
             <td class="pt-3-half" class="MS" > 
+
             <!-- bouton modifer -->
-              <a type=" button" class="btn success" href="{{ route('updateSecteurs') }}">M</a>
+              <a type=" button" class="btn success" href="{{ route('updateSecteurs',['secteur'=>$secteur->SectCode]) }}">M</a>
             </td>
             <td class="pt-3-half" class="MS" >
-            <!-- bouton modifer -->
-              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">S</a>
+
+            <!-- bouton supprimer -->
+            <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce secteur ?')){document.getElementById('{{$secteur->SectCode}}').submit() }">S</a>
+                <form id="{{$secteur->SectCode}}" action="{{route('deleteSecteurs',['secteur'=>$secteur->SectCode])}}" method="post">
+                    @csrf
+                    <input type="hidden" name="_method" value="delete">
+                </form>
             </td>
+            
           </tr>
           @endforeach
           

@@ -30,4 +30,12 @@ class ControllerDelegues extends Controller
         return view("Update/updateDelegues", ["updateDelegues"=>$delegues]);
 
     }
+
+    public function del(Request $request) {
+
+        $delegues = \App\Models\Delegues::all();
+
+        return view("Delete/deleteDelegues", ["deleteDelegues"=>$delegues]);
+
+    }
 }

@@ -25,9 +25,17 @@ class ControllerResponsables extends Controller
 
     public function upd(Request $request) {
 
-        $responsables = \App\Models\Responsables::all();
+        $responsables = \App\Models\responsables::all();
 
         return view("Update/updateResponsables", ["updateResponsables"=>$responsables]);
+
+    }
+
+    public function del(Request $request) {
+
+        $responsables = \App\Models\Responsables::all();
+
+        return view("Delete/deleteResponsables", ["deleteResponsables"=>$responsables]);
 
     }
 }

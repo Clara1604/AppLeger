@@ -1,7 +1,7 @@
 <?php
 
+use App\Models\Secteurs;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +15,14 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth/login');
+})->name('home');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 
 Route::get("/demo/{id}", function($id) {
     echo "id = ".$id;
@@ -42,17 +48,10 @@ Route::get("/AddResponsables", [\App\Http\Controllers\ControllerResponsables::cl
 
 Route::get("/AddSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "add"])->name("addSecteurs");
 
+
 #Routes des CREATE
 
-Route::post("/AddSecteurs", function() {
-    $secteurs = new App\Models\Secteurs();
-    $secteurs->SectCode = request('SectCode');
-    $secteurs->SectNom = request('SectNom');
-
-    $secteurs->save();
-
-    return redirect('/secteurs');
-})->name("AddSecteurs");
+Route::post("/AddSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "create"])->name("AddSecteurs");
 
 
 Route::post("/AddResponsables", function() {
@@ -100,4 +99,11 @@ Route::post("/AddVisiteurs", function() {
 
 #Routes pour voir formulaire de modif SECTEURS
 
-Route::get("/UpdSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "upd"])->name("updateSecteurs");
+Route::get("/UpdSecteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs::class, "upd"])->name("updateSecteurs");
+Route::post("/UpdSecteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs::class, "modif"])->name("updateSecteurs");
+
+
+
+#DELETE
+
+Route::delete("/Secteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs::class, "del"])->name("deleteSecteurs");

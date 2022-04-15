@@ -47,12 +47,12 @@
 
 <form method="POST">
   <div class="form-group">
-    <label for="exampleInputEmail1">Identifiant</label>
-    <input type="number" class="form-control" name="SectCode" min="10" placeholder="Enter a number">
+    <label for="SectCode">Identifiant</label>
+    <input  readonly type="number" class="form-control" name="SectCode" min="10" value="{{$secteurs->SectCode}}">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Nom</label>
-    <input type="name" class="form-control" name="SectNom" placeholder="Nom">
+    <label for="SectNom">Nom</label>
+    <input type="name" class="form-control" name="SectNom" value="{{$secteurs->SectNom}}">
   </div>
   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
   <input type="submit" class="btn success" value="Valider"></input>
