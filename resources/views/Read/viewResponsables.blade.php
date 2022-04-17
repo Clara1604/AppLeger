@@ -48,6 +48,8 @@
 <h1 class="titre">Les Responsables</h1>
 <a type=" button" class="btn success" href="{{ route('addResponsables') }}">Ajouter un Responsables</a>
 <br></br>
+
+{{$viewResponsables->links()}}
             
              <!------------------- tableau ---------------------->
 
@@ -73,11 +75,19 @@
             <td class="pt-3-half" >{{$responsable->RespTel}}</td>
             <td class="pt-3-half" >{{$responsable->RespMail}}</td>
             <td class="pt-3-half" >{{$responsable->SectCode}}</td>
+
+             <!-- bouton modifer -->
             <td class="pt-3-half" class="MS" > 
-              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">M</a>
+              <a type=" button" class="btn success" href="{{ route('updateResponsables', ['responsable'=>$responsable->IdResp]) }}">M</a>
             </td>
+
+            <!-- bouton supprimer -->
             <td class="pt-3-half" class="MS" >
-              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">S</a>
+            <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce secteur ?')){document.getElementById('{{$responsable->IdResp}}').submit() }">S</a>
+                <form id="{{$responsable->IdResp}}" action="{{route('deleteResponsables',['responsable'=>$responsable->IdResp])}}" method="post">
+                    @csrf
+                    <input type="hidden" name="_method" value="delete">
+                </form>
             </td>
           </tr>
           @endforeach

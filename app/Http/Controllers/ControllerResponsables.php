@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Responsables;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class ControllerResponsables extends Controller
 {
     public function hello(Request $request) {
 
-        $responsables = \App\Models\Responsables::all();
+        $responsables = \App\Models\Responsables::paginate(5);
 
         return view("Read/viewResponsables", ["viewResponsables"=>$responsables]);
 
@@ -23,19 +26,53 @@ class ControllerResponsables extends Controller
 
     }
 
-    public function upd(Request $request) {
+    public function create(Request $request) {
 
-        $responsables = \App\Models\responsables::all();
+        $res = DB::table('Respoinsable')->insert([
 
-        return view("Update/updateResponsables", ["updateResponsables"=>$responsables]);
+            'IdResp' => $request->input('IdResp'),
+            'RespNom' => $request->input('RespNom'),
+            'RespPrenom' => $request->input('RespPrenom'),
+            'RespTel' => $request->input('RespTel'),
+            'RespMail' => $request->input('RespMail'),
+            'SectCode' => $request->input('SectCode'),
+        ]);
+
+
+        return redirect('/responsables');
+        //->with("successAjout", "le porteur' '$request->PORTNom'a été ajouté avec succès");
+    }
+
+    public function upd($id) {
+
+        $responsables = \App\Models\responsables::findorfail($id);
+
+        return view("Update/updateResponsables", compact('responsables'));
 
     }
 
-    public function del(Request $request) {
+    public function modif(Request $request, Responsables $responsables) {
 
-        $responsables = \App\Models\Responsables::all();
+        $res = DB::table('Responsable')->where('IdResp','=', $responsables->IdResp)
+        ->update([
 
-        return view("Delete/deleteResponsables", ["deleteResponsables"=>$responsables]);
+            
+            'RespNom' => $request->input('RespNom'),
+            'RespPrenom' => $request->input('RespPrenom'),
+            'RespTel' => $request->input('RespTel'),
+            'RespMail' => $request->input('RespMail'),
+            'SectCode' => $request->input('SectCode'),
+        ]);
+
+
+        return redirect('/responsables');
+    }
+
+    public function del(Request $request, Responsables $responsables) {
+
+        $responsables->delete();
+
+        return back();
 
     }
 }

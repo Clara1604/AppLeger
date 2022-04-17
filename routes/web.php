@@ -53,20 +53,8 @@ Route::get("/AddSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "ad
 
 Route::post("/AddSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "create"])->name("AddSecteurs");
 
+Route::post("/AddResponsables", [\App\Http\Controllers\ControllerResponsables::class, "create"])->name("AddResponsables");
 
-Route::post("/AddResponsables", function() {
-    $responsables = new App\Models\Responsables();
-    $responsables->IdResp = request('IdResp');
-    $responsables->RespNom = request('RespNom');
-    $responsables->RespPrenom = request('RespPrenom');
-    $responsables->RespTel = request('RespTel');
-    $responsables->RespMail = request('RespMail');
-    $responsables->SectCode = request('SectCode');
-
-    $responsables->save();
-
-    return redirect('/responsables');
-})->name("AddResponsables");
 
 Route::post("/AddDelegues", function() {
     $delegues = new App\Models\Delegues();
@@ -102,8 +90,13 @@ Route::post("/AddVisiteurs", function() {
 Route::get("/UpdSecteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs::class, "upd"])->name("updateSecteurs");
 Route::post("/UpdSecteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs::class, "modif"])->name("updateSecteurs");
 
+Route::get("/UpdResponsables/{responsable}", [\App\Http\Controllers\ControllerResponsables::class, "upd"])->name("updateResponsables");
+Route::get("/UpdResponsables/{responsable}", [\App\Http\Controllers\ControllerResponsables::class, "modif"])->name("updateResponsables");
 
 
 #DELETE
 
 Route::delete("/Secteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs::class, "del"])->name("deleteSecteurs");
+
+Route::delete("/Responsables/{responsable}", [\App\Http\Controllers\ControllerResponsables::class, "del"])->name("deleteResponsables");
+

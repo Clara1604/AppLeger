@@ -67,14 +67,14 @@
             <tr>
             <td class="pt-3-half" > {{$secteur->SectCode}} </td>
             <td class="pt-3-half" >{{$secteur->SectNom}}</td>
-            <td class="pt-3-half" class="MS" > 
 
             <!-- bouton modifer -->
+            <td class="pt-3-half" class="MS" > 
               <a type=" button" class="btn success" href="{{ route('updateSecteurs',['secteur'=>$secteur->SectCode]) }}">M</a>
             </td>
-            <td class="pt-3-half" class="MS" >
-
+            
             <!-- bouton supprimer -->
+            <td class="pt-3-half" class="MS" >
             <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce secteur ?')){document.getElementById('{{$secteur->SectCode}}').submit() }">S</a>
                 <form id="{{$secteur->SectCode}}" action="{{route('deleteSecteurs',['secteur'=>$secteur->SectCode])}}" method="post">
                     @csrf
