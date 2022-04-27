@@ -43,6 +43,8 @@
     </form>
   </div>
 </nav>
+
+{{$viewDelegues->links()}}
              <!---------------- Fin Barre de recherche ------------------>
 
 <h1 class="titre">Les Délégues</h1>
@@ -73,12 +75,18 @@
             <td class="pt-3-half" >{{$delegue->DelTel}}</td>
             <td class="pt-3-half" >{{$delegue->DelMail}}</td>
             <td class="pt-3-half" >{{$delegue->IdResp}}</td>
+            <!-- bouton modifer -->
             <td class="pt-3-half" class="MS" > 
-              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">M</a>
+              <a type=" button" class="btn success" href="{{ route('updateDelegues', ['delegue'=>$delegue->IdDel]) }}">M</a>
             </td>
+            <!-- bouton supprimer -->
             <td class="pt-3-half" class="MS" >
-              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">S</a>
-            </td>
+            <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce délègué ?')){document.getElementById('{{$delegue->IdDel}}').submit() }">S</a>
+                <form id="{{$delegue->IdDel}}" action="{{route('deleteDelegues',['delegue'=>$delegue->IdDel])}}" method="post">
+                    @csrf
+                    <input type="hidden" name="_method" value="delete">
+                </form>            
+                </td>
           </tr>
           @endforeach
   </tbody>

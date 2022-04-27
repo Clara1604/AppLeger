@@ -55,35 +55,10 @@ Route::post("/AddSecteurs", [\App\Http\Controllers\ControllerSecteurs::class, "c
 
 Route::post("/AddResponsables", [\App\Http\Controllers\ControllerResponsables::class, "create"])->name("AddResponsables");
 
+Route::post("/AddDelegues", [\App\Http\Controllers\ControllerDelegues::class, "create"])->name("AddDelegues");
 
-Route::post("/AddDelegues", function() {
-    $delegues = new App\Models\Delegues();
-    $delegues->IdDel = request('IdDel');
-    $delegues->DelNom = request('DelNom');
-    $delegues->DelPrenom = request('Delprenom');
-    $delegues->DelTel = request('DelTel');
-    $delegues->DelMail = request('DelMail');
-    $delegues->IdResp = request('IdResp');
+Route::post("/AddVisiteurs", [\App\Http\Controllers\ControllerVisiteurs::class, "create"])->name("AddVisiteurs");
 
-    $delegues->save();
-
-    return redirect('/delegues');
-})->name("AddDelegues");
-
-
-Route::post("/AddVisiteurs", function() {
-    $visiteurs = new App\Models\Visiteurs();
-    $visiteurs->IdVis = request('IdVis');
-    $visiteurs->VisNom = request('VisNom');
-    $visiteurs->VisPrenom = request('VisPrenom');
-    $visiteurs->VisTel = request('VisTel');
-    $visiteurs->VisMail = request('VisMail');
-    $visiteurs->IdDel = request('IdDel');
-
-    $visiteurs->save();
-
-    return redirect('/visiteurs');
-})->name("AddVisiteurs");
 
 #Routes pour voir formulaire de modif SECTEURS
 
@@ -93,6 +68,13 @@ Route::post("/UpdSecteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs:
 Route::get("/UpdResponsables/{responsable}", [\App\Http\Controllers\ControllerResponsables::class, "upd"])->name("updateResponsables");
 Route::get("/UpdResponsables/{responsable}", [\App\Http\Controllers\ControllerResponsables::class, "modif"])->name("updateResponsables");
 
+Route::get("/UpdDelegues/{delegue}", [\App\Http\Controllers\ControllerDelegues::class, "upd"])->name("updateDelegues");
+Route::get("/UpdDelegues/{delegue}", [\App\Http\Controllers\ControllerDelegues::class, "modif"])->name("updateDelegues");
+
+Route::get("/UpdVisiteurs/{visiteur}", [\App\Http\Controllers\ControllerVisiteurs::class, "upd"])->name("updateVisiteurs");
+Route::get("/UpdVisiteurs/{visiteur}", [\App\Http\Controllers\ControllerVisiteurs::class, "modif"])->name("updateVisiteurs");
+
+
 
 #DELETE
 
@@ -100,3 +82,6 @@ Route::delete("/Secteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs::
 
 Route::delete("/Responsables/{responsable}", [\App\Http\Controllers\ControllerResponsables::class, "del"])->name("deleteResponsables");
 
+Route::delete("/Delegues/{delegue}", [\App\Http\Controllers\ControllerDelegues::class, "del"])->name("deleteDelegues");
+
+Route::delete("/Visiteurs/{visiteur}", [\App\Http\Controllers\ControllerVisiteurs::class, "del"])->name("deleteVisiteurs");

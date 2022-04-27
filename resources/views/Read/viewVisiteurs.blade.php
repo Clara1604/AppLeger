@@ -48,6 +48,8 @@
 <h1 class="titre">Les Visiteurs</h1>
 <a type=" button" class="btn success" href="{{ route('addVisiteurs') }}">Ajouter un Visiteur</a>
 <br></br>
+
+{{$viewVisiteurs->link()}}
             
              <!------------------- tableau ---------------------->
 
@@ -73,11 +75,17 @@
             <td class="pt-3-half" >{{$visiteur->VisTel}}</td>
             <td class="pt-3-half" >{{$visiteur->VisMail}}</td>
             <td class="pt-3-half" >{{$visiteur->IdDel}}</td>
+                        <!-- bouton modifer -->
             <td class="pt-3-half" class="MS" > 
-              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">M</a>
+              <a type=" button" class="btn success" href="{{ route('updateVisiteurs', ['visiteur'=>$visiteur->IdVis]) }}">M</a>
             </td>
+                        <!-- bouton supprimer -->
             <td class="pt-3-half" class="MS" >
-              <a type=" button" class="btn success" href="{{ route('addSecteurs') }}">S</a>
+            <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce visiteur ?')){document.getElementById('{{$visiteur->IdVis}}').submit() }">S</a>
+                <form id="{{$visiteur->IdVis}}" action="{{route('deleteVisiteurs',['visiteur'=>$visiteur->IdVis])}}" method="post">
+                    @csrf
+                    <input type="hidden" name="_method" value="delete">
+                </form>
             </td>
           </tr>
           @endforeach
