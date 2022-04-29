@@ -51,12 +51,10 @@ class ControllerResponsables extends Controller
 
     }
 
-    public function modif(Request $request, Responsables $responsables) {
+    public function modif(Request $request, Responsables $responsable) {
 
-        $res = DB::table('Responsable')->where('IdResp','=', $responsables->IdResp)
+        $res = DB::table('Responsable')->where('IdResp','=', $responsable->IdResp)
         ->update([
-
-            
             'RespNom' => $request->input('RespNom'),
             'RespPrenom' => $request->input('RespPrenom'),
             'RespTel' => $request->input('RespTel'),
@@ -68,9 +66,10 @@ class ControllerResponsables extends Controller
         return redirect('/responsables');
     }
 
-    public function del(Request $request, Responsables $responsables) {
+    public function del(Request $request, Responsables $responsable) {
 
-        $responsables->delete();
+        ddd($responsable);
+        // $responsables->delete();
 
         return back();
 

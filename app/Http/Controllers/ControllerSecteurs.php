@@ -51,9 +51,7 @@ class ControllerSecteurs extends Controller {
     public function modif(Request $request, Secteurs $secteur) {
 
         $res = DB::table('Secteur')->where('SectCode','=', $secteur->SectCode)
-        ->update([
-
-            
+        ->update([ 
             'SectNom' => $request->input('SectNom'),
         ]);
 
@@ -67,5 +65,13 @@ class ControllerSecteurs extends Controller {
 
         return back();
 
+    }
+
+    public function search() {
+        $q = request()->input('q');
+        $secteurs = \App\Models\Secteurs::Where('SectCode','like',"%$q%")
+        ->orWhere('SectNom','like',"%$q%")->get();
+
+        return view('searchSecteurs')->with('secteurs', $secteurs);
     }
 }

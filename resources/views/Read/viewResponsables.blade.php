@@ -69,7 +69,7 @@
   <tbody>
   @foreach($viewResponsables as $responsable)
             <tr>
-            <td class="pt-3-half" > {{$responsable->getKey()}} </td>
+            <td class="pt-3-half" >{{$responsable->IdResp}} </td>
             <td class="pt-3-half" >{{$responsable->RespNom}}</td>
             <td class="pt-3-half" >{{$responsable->RespPrenom}}</td>
             <td class="pt-3-half" >{{$responsable->RespTel}}</td>

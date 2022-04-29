@@ -37,10 +37,9 @@
         <a class="nav-link" href="{{route('goVisiteurs')}}">Visiteurs</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-      <button class="btn success" type="submit">chercher</button>
-    </form>
+    
+    @include('partials.searchSecteurs')
+
   </div>
 </nav>
              <!---------------- Fin Barre de recherche ------------------>

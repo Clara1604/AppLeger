@@ -45,15 +45,37 @@
 
             <!---------------- Formulaire ------------------>
 
-<form method="POST">
+            <form method="POST">
   <div class="form-group">
     <label for="IdResp">Identifiant</label>
-    <input  readonly type="number" class="form-control" name="IdResp" min="10" value="{{$responsables->RespNom}}">
+    <input  readonly type="number" class="form-control" name="IdResp"  value="{{$responsables->IdResp}}">
   </div>
+
   <div class="form-group">
     <label for="RespNom">Nom</label>
     <input type="name" class="form-control" name="RespNom" value="{{$responsables->RespNom}}">
   </div>
+
+  <div class="form-group">
+    <label for="RespPrenom">Prenom</label>
+    <input type="name" class="form-control" name="RespPrenom" value="{{$responsables->RespPrenom}}">
+  </div>
+
+  <div class="form-group">
+    <label for="RespTel">Telephone</label>
+    <input type="name" class="form-control" name="RespTel" value="{{$responsables->RespTel}}">
+  </div>
+
+  <div class="form-group">
+    <label for="RespMail">Mail</label>
+    <input type="name" class="form-control" name="RespMail" value="{{$responsables->RespMail}}">
+  </div>
+
+  <div class="form-group">
+    <label for="SectCode">Identifiant secteur</label>
+    <input type="name" class="form-control" name="SectCode" value="{{$responsables->SectCode}}">
+  </div>
+
   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
   <input type="submit" class="btn success" value="Valider"></input>
 </form>

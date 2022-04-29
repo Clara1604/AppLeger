@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ControllerSecteurs;
 use App\Models\Secteurs;
 use Illuminate\Support\Facades\Route;
 
@@ -66,13 +67,13 @@ Route::get("/UpdSecteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs::
 Route::post("/UpdSecteurs/{secteur}", [\App\Http\Controllers\ControllerSecteurs::class, "modif"])->name("updateSecteurs");
 
 Route::get("/UpdResponsables/{responsable}", [\App\Http\Controllers\ControllerResponsables::class, "upd"])->name("updateResponsables");
-Route::get("/UpdResponsables/{responsable}", [\App\Http\Controllers\ControllerResponsables::class, "modif"])->name("updateResponsables");
+Route::post("/UpdResponsables/{responsable}", [\App\Http\Controllers\ControllerResponsables::class, "modif"])->name("updateResponsables");
 
 Route::get("/UpdDelegues/{delegue}", [\App\Http\Controllers\ControllerDelegues::class, "upd"])->name("updateDelegues");
-Route::get("/UpdDelegues/{delegue}", [\App\Http\Controllers\ControllerDelegues::class, "modif"])->name("updateDelegues");
+Route::post("/UpdDelegues/{delegue}", [\App\Http\Controllers\ControllerDelegues::class, "modif"])->name("updateDelegues");
 
 Route::get("/UpdVisiteurs/{visiteur}", [\App\Http\Controllers\ControllerVisiteurs::class, "upd"])->name("updateVisiteurs");
-Route::get("/UpdVisiteurs/{visiteur}", [\App\Http\Controllers\ControllerVisiteurs::class, "modif"])->name("updateVisiteurs");
+Route::post("/UpdVisiteurs/{visiteur}", [\App\Http\Controllers\ControllerVisiteurs::class, "modif"])->name("updateVisiteurs");
 
 
 
@@ -85,3 +86,8 @@ Route::delete("/Responsables/{responsable}", [\App\Http\Controllers\ControllerRe
 Route::delete("/Delegues/{delegue}", [\App\Http\Controllers\ControllerDelegues::class, "del"])->name("deleteDelegues");
 
 Route::delete("/Visiteurs/{visiteur}", [\App\Http\Controllers\ControllerVisiteurs::class, "del"])->name("deleteVisiteurs");
+
+
+# SEARCH
+
+Route::get('SecteursSearch', [ControllerSecteurs::class, 'search'])->name("goSecteursSearch");

@@ -48,7 +48,7 @@
 <form method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1">Identifiant</label>
-    <input type="number" class="form-control" name="SectCode" min="10" placeholder="Enter a number">
+    <input type="number" class="form-control" name="SectCode" placeholder="Enter a number">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Nom</label>
