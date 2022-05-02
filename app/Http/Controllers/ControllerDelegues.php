@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 
 class ControllerDelegues extends Controller
@@ -68,9 +69,25 @@ class ControllerDelegues extends Controller
 
     public function del(Request $request, Delegues $delegue) {
 
-        $delegue->delete();
+        try{
+            $delegue->delete();
+    
+            return back();
+            }catch(QueryException $q){
+                return back()->with("echecAjout", "vous ne pouvez pas supprimer ce délégués, car des visiteurs lui sont affectés");
+    
+            }
+    }
 
-        return back();
+    public function search() {
+        $q = request()->input('q');
+        $delegues = \App\Models\Delegues::Where('IdDel','like',"%$q%")
+        ->orWhere('DelNom','like',"%$q%")
+        ->orWhere('DelPrenom','like',"%$q%")
+        ->orWhere('DelTel','like',"%$q%")
+        ->orWhere('DelMail','like',"%$q%")
+        ->orWhere('IdResp','like',"%$q%")->get();
 
+        return view('Search/searchDelegues')->with('delegues', $delegues);
     }
 }

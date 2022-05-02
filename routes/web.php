@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ControllerDelegues;
 use App\Http\Controllers\ControllerResponsables;
 use App\Http\Controllers\ControllerSecteurs;
+use App\Http\Controllers\ControllerVisiteurs;
 use App\Models\Secteurs;
 use Illuminate\Support\Facades\Route;
 
@@ -94,3 +96,7 @@ Route::delete("/Visiteurs/{visiteur}", [\App\Http\Controllers\ControllerVisiteur
 Route::get('SecteursSearch', [ControllerSecteurs::class, 'search'])->name("goSecteursSearch");
 
 Route::get('ResponsablesSearch', [ControllerResponsables::class, 'search'])->name("goResponsablesSearch");
+
+Route::get('DeleguesSearch', [ControllerDelegues::class, 'search'])->name("goDeleguesSearch");
+
+Route::get('VisiteursSearch', [ControllerVisiteurs::class, 'search'])->name("goVisiteursSearch");

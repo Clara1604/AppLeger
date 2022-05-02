@@ -37,10 +37,7 @@
         <a class="nav-link" href="{{route('goVisiteurs')}}">Visiteurs</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-      <button class="btn success" type="submit">chercher</button>
-    </form>
+    @include('partials.searchDelegues')
   </div>
 </nav>
 
@@ -53,6 +50,12 @@
             
              <!------------------- tableau ---------------------->
 
+             @if(session()->has("echecAjout"))
+    <div class="alert alert-danger">
+        <h3>{{session()->get('echecAjout')}}</h3>
+    </div>
+    @endif
+    
 <table class="table table-striped" align="center">
   <thead>
     <tr>

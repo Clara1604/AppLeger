@@ -46,8 +46,6 @@
 <h1 class="titre">Les Visiteurs</h1>
 <a type=" button" class="btn success" href="{{ route('addVisiteurs') }}">Ajouter un Visiteur</a>
 <br></br>
-
-{{$viewVisiteurs->links()}}
             
              <!------------------- tableau ---------------------->
 
@@ -65,7 +63,7 @@
     </tr>
   </thead>
   <tbody>
-            @foreach($viewVisiteurs as $visiteur)
+            @foreach($visiteurs as $visiteur)
             <tr>
             <td class="pt-3-half" > {{$visiteur->getKey()}} </td>
             <td class="pt-3-half" >{{$visiteur->VisNom}}</td>

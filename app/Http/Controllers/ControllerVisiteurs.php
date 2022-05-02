@@ -74,4 +74,16 @@ class ControllerVisiteurs extends Controller
         return back();
 
     }
+
+    public function search() {
+        $q = request()->input('q');
+        $visiteurs = \App\Models\Visiteurs::Where('IdVis','like',"%$q%")
+        ->orWhere('VisNom','like',"%$q%")
+        ->orWhere('VisPrenom','like',"%$q%")
+        ->orWhere('VisTel','like',"%$q%")
+        ->orWhere('VisMail','like',"%$q%")
+        ->orWhere('IdDel','like',"%$q%")->get();
+
+        return view('Search/searchVisiteurs')->with('visiteurs', $visiteurs);
+    }
 }

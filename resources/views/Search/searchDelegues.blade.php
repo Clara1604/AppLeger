@@ -37,17 +37,15 @@
         <a class="nav-link" href="{{route('goVisiteurs')}}">Visiteurs</a>
       </li>
     </ul>
-    @include('partials.searchVisiteurs')
-
+    @include('partials.searchDelegues')
   </div>
 </nav>
+
              <!---------------- Fin Barre de recherche ------------------>
 
-<h1 class="titre">Les Visiteurs</h1>
-<a type=" button" class="btn success" href="{{ route('addVisiteurs') }}">Ajouter un Visiteur</a>
+<h1 class="titre">Les Délégues</h1>
+<a type=" button" class="btn success" href="{{ route('addDelegues') }}">Ajouter un Délégués</a>
 <br></br>
-
-{{$viewVisiteurs->links()}}
             
              <!------------------- tableau ---------------------->
 
@@ -59,32 +57,32 @@
       <th scope="col">Prenom</th>
       <th scope="col">Tel</th>
       <th scope="col">Mail</th>
-      <th scope="col">Id Délégues</th>
+      <th scope="col">Id Responsables</th>
       <th scope="col">Modifier</th>
       <th scope="col">Supprimer</th>
     </tr>
   </thead>
   <tbody>
-            @foreach($viewVisiteurs as $visiteur)
+            @foreach($delegues as $delegue)
             <tr>
-            <td class="pt-3-half" > {{$visiteur->getKey()}} </td>
-            <td class="pt-3-half" >{{$visiteur->VisNom}}</td>
-            <td class="pt-3-half" >{{$visiteur->VisPrenom}}</td>
-            <td class="pt-3-half" >{{$visiteur->VisTel}}</td>
-            <td class="pt-3-half" >{{$visiteur->VisMail}}</td>
-            <td class="pt-3-half" >{{$visiteur->IdDel}}</td>
-                        <!-- bouton modifer -->
+            <td class="pt-3-half" > {{$delegue->getKey()}} </td>
+            <td class="pt-3-half" >{{$delegue->DelNom}}</td>
+            <td class="pt-3-half" >{{$delegue->DelPrenom}}</td>
+            <td class="pt-3-half" >{{$delegue->DelTel}}</td>
+            <td class="pt-3-half" >{{$delegue->DelMail}}</td>
+            <td class="pt-3-half" >{{$delegue->IdResp}}</td>
+            <!-- bouton modifer -->
             <td class="pt-3-half" class="MS" > 
-              <a type=" button" class="btn success" href="{{ route('updateVisiteurs', ['visiteur'=>$visiteur->IdVis]) }}">M</a>
+              <a type=" button" class="btn success" href="{{ route('updateDelegues', ['delegue'=>$delegue->IdDel]) }}">M</a>
             </td>
-                        <!-- bouton supprimer -->
+            <!-- bouton supprimer -->
             <td class="pt-3-half" class="MS" >
-            <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce visiteur ?')){document.getElementById('{{$visiteur->IdVis}}').submit() }">S</a>
-                <form id="{{$visiteur->IdVis}}" action="{{route('deleteVisiteurs',['visiteur'=>$visiteur->IdVis])}}" method="post">
+            <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce délègué ?')){document.getElementById('{{$delegue->IdDel}}').submit() }">S</a>
+                <form id="{{$delegue->IdDel}}" action="{{route('deleteDelegues',['delegue'=>$delegue->IdDel])}}" method="post">
                     @csrf
                     <input type="hidden" name="_method" value="delete">
-                </form>
-            </td>
+                </form>            
+                </td>
           </tr>
           @endforeach
   </tbody>
