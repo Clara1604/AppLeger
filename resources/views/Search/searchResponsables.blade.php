@@ -37,7 +37,7 @@
         <a class="nav-link" href="{{route('goVisiteurs')}}">Visiteurs</a>
       </li>
     </ul>
-    @include('partials.searchResponsables')
+         @include('partials.searchResponsables')
   </div>
 </nav>
              <!---------------- Fin Barre de recherche ------------------>
@@ -46,15 +46,9 @@
 <a type=" button" class="btn success" href="{{ route('addResponsables') }}">Ajouter un Responsables</a>
 <br></br>
 
-{{$viewResponsables->links()}}
+
             
              <!------------------- tableau ---------------------->
-
-             @if(session()->has("echecAjout"))
-    <div class="alert alert-danger">
-        <h3>{{session()->get('echecAjout')}}</h3>
-    </div>
-    @endif
 
 <table class="table table-striped" align="center">
   <thead>
@@ -70,7 +64,7 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($viewResponsables as $responsable)
+  @foreach($responsables as $responsable)
             <tr>
             <td class="pt-3-half" >{{$responsable->IdResp}} </td>
             <td class="pt-3-half" >{{$responsable->RespNom}}</td>

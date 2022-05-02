@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
 
 class ControllerSecteurs extends Controller {
 
@@ -61,9 +62,15 @@ class ControllerSecteurs extends Controller {
 
     public function del(Request $request, Secteurs $secteur) {
 
+
+        try{
         $secteur->delete();
 
         return back();
+        }catch(QueryException $q){
+            return back()->with("echecAjout", "vous ne pouvez pas supprimer ce secteur, car des responsables lui sont affectés");
+
+        }
 
     }
 
@@ -72,6 +79,6 @@ class ControllerSecteurs extends Controller {
         $secteurs = \App\Models\Secteurs::Where('SectCode','like',"%$q%")
         ->orWhere('SectNom','like',"%$q%")->get();
 
-        return view('searchSecteurs')->with('secteurs', $secteurs);
+        return view("Search/searchSecteurs")->with('secteurs', $secteurs);
     }
 }

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
+
 
 class ControllerResponsables extends Controller
 {
@@ -68,10 +70,26 @@ class ControllerResponsables extends Controller
 
     public function del(Request $request, Responsables $responsable) {
 
-        ddd($responsable);
-        // $responsables->delete();
+        try{
+            $responsable->delete();
+    
+            return back();
+            }catch(QueryException $q){
+                return back()->with("echecAjout", "vous ne pouvez pas supprimer ce responsable, car des délégués lui sont affectés");
+    
+            }
 
-        return back();
+    }
 
+    public function search() {
+        $q = request()->input('q');
+        $responsables = \App\Models\Responsables::Where('IdResp','like',"%$q%")
+        ->orWhere('RespNom','like',"%$q%")
+        ->orWhere('RespPrenom','like',"%$q%")
+        ->orWhere('RespTel','like',"%$q%")
+        ->orWhere('RespMail','like',"%$q%")
+        ->orWhere('SectCode','like',"%$q%")->get();
+
+        return view('Search/searchResponsables')->with('responsables', $responsables);
     }
 }

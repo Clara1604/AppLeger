@@ -40,6 +40,9 @@
     
     @include('partials.searchSecteurs')
 
+    
+
+    
   </div>
 </nav>
              <!---------------- Fin Barre de recherche ------------------>
@@ -51,6 +54,13 @@
 {{$viewSecteurs->links()}}
 
              <!------------------- tableau ---------------------->
+
+             @if(session()->has("echecAjout"))
+    <div class="alert alert-danger">
+        <h3>{{session()->get('echecAjout')}}</h3>
+    </div>
+    @endif
+
 
 <table class="table table-striped" align="center">
   <thead>
