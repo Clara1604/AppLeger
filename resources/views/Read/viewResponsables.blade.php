@@ -66,7 +66,7 @@
       <th scope="col">Mail</th>
       <th scope="col">code Secteur</th>
       <th scope="col">Modifier</th>
-      <th scope="col">Supprimer</th>
+      <!-- <th scope="col">Supprimer</th> -->
     </tr>
   </thead>
   <tbody>
@@ -84,14 +84,14 @@
               <a type=" button" class="btn success" href="{{ route('updateResponsables', ['responsable'=>$responsable->IdResp]) }}">M</a>
             </td>
 
-            <!-- bouton supprimer -->
+            <!-- bouton supprimer 
             <td class="pt-3-half" class="MS" >
             <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce secteur ?')){document.getElementById('{{$responsable->IdResp}}').submit() }">S</a>
                 <form id="{{$responsable->IdResp}}" action="{{route('deleteResponsables',['responsable'=>$responsable->IdResp])}}" method="post">
                     @csrf
                     <input type="hidden" name="_method" value="delete">
                 </form>
-            </td>
+            </td>-->
           </tr>
           @endforeach
   </tbody>

@@ -68,7 +68,7 @@
       <th scope="col">Code</th>
       <th scope="col">Nom</th>
       <th scope="col">Modifier</th>
-      <th scope="col">Supprimer</th>
+      <!-- <th scope="col">Supprimer</th> -->
     </tr>
   </thead>
   <tbody>
@@ -82,14 +82,14 @@
               <a type=" button" class="btn success" href="{{ route('updateSecteurs',['secteur'=>$secteur->SectCode]) }}">M</a>
             </td>
             
-            <!-- bouton supprimer -->
+            <!-- bouton supprimer 
             <td class="pt-3-half" class="MS" >
             <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce secteur ?')){document.getElementById('{{$secteur->SectCode}}').submit() }">S</a>
                 <form id="{{$secteur->SectCode}}" action="{{route('deleteSecteurs',['secteur'=>$secteur->SectCode])}}" method="post">
                     @csrf
                     <input type="hidden" name="_method" value="delete">
                 </form>
-            </td>
+            </td> -->
             
           </tr>
           @endforeach
