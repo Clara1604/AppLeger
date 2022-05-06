@@ -61,7 +61,7 @@
       <th scope="col">Mail</th>
       <th scope="col">Id Délégues</th>
       <th scope="col">Modifier</th>
-      <!-- <th scope="col">Supprimer</th> -->
+      <th scope="col">Supprimer</th>
     </tr>
   </thead>
   <tbody>
@@ -77,14 +77,14 @@
             <td class="pt-3-half" class="MS" > 
               <a type=" button" class="btn success" href="{{ route('updateVisiteurs', ['visiteur'=>$visiteur->IdVis]) }}">M</a>
             </td>
-                        <!-- bouton supprimer 
+                        <!-- bouton supprimer -->
             <td class="pt-3-half" class="MS" >
             <a href="#" class="btn success" onclick="if(confirm('Voulez-vous vraiment supprimer ce visiteur ?')){document.getElementById('{{$visiteur->IdVis}}').submit() }">S</a>
                 <form id="{{$visiteur->IdVis}}" action="{{route('deleteVisiteurs',['visiteur'=>$visiteur->IdVis])}}" method="post">
                     @csrf
                     <input type="hidden" name="_method" value="delete">
                 </form>
-            </td> -->
+            </td> 
           </tr>
           @endforeach
   </tbody>
